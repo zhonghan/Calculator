@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
  * Created by karl on 2018/11/20.
  */
 public class NumberUtils {
-    public static boolean isNotDigital(String item) {
+    public static boolean isDigital(String item) {
         if(item==null || item.length()<=0){
-            return true;
+            return false;
         }
-        return !isRealNumber(item);
+        return isRealNumber(item);
 
     }
     public static boolean isDecimal(String orginal){

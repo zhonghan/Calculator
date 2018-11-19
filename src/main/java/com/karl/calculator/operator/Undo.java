@@ -13,6 +13,7 @@ import java.util.Stack;
 public class Undo extends Operation {
 
     public Undo(List<String> express, int operationIndex) {
+        this.setExpress(express);
         this.setIndexValue(new IndexValue(operationIndex, express.get(operationIndex)));
         this.setSymbol(OperationEnum.UNDO);
     }

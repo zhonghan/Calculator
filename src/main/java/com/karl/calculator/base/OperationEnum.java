@@ -15,7 +15,7 @@ public enum OperationEnum {
         return symbol;
     }
 
-    public static boolean isNotOperator(String item) {
+    public static boolean isOperator(String item) {
         for(OperationEnum operationEnum : OperationEnum.values()){
             if(operationEnum.getSymbol().equals(item)){
                 return true;

@@ -34,11 +34,11 @@ public class Calculator {
     private static boolean invalidateInput(String readLine) {
         String[] arr = readLine.split(SEPARTOR);
         for(String item : arr) {
-            if(NumberUtils.isNotDigital(item) && OperationEnum.isNotOperator(item) ){
-                return true;
+            if(NumberUtils.isDigital(item) || OperationEnum.isOperator(item) ){
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 

@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class Clear extends Operation {
     public Clear(List<String> express, int operationIndex) {
+        this.setExpress(express);
         this.setIndexValue(new IndexValue(operationIndex, express.get(operationIndex)));
         this.setParams(new ArrayList<String>(express.subList(0, operationIndex)));
         this.setSymbol(OperationEnum.CLEAR);

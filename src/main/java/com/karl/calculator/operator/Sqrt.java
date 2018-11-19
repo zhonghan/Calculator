@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class Sqrt extends Operation {
     public Sqrt(List<String> express, int operationIndex) {
+        this.setExpress(express);
         this.setIndexValue(new IndexValue(operationIndex, express.get(operationIndex)));
         this.getParams().add(express.get(operationIndex - 1));
         this.setSymbol(OperationEnum.SQRT);
