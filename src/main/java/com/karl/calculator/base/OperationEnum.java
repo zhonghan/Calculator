@@ -14,4 +14,13 @@ public enum OperationEnum {
     public String getSymbol() {
         return symbol;
     }
+
+    public static boolean isNotOperator(String item) {
+        for(OperationEnum operationEnum : OperationEnum.values()){
+            if(operationEnum.getSymbol().equals(item)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -3,6 +3,7 @@ package com.karl.calculator;
 import com.karl.calculator.base.OperationEnum;
 import com.karl.calculator.base.OperationFactory;
 import com.karl.calculator.operator.Operation;
+import com.karl.calculator.util.NumberUtils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,16 +34,15 @@ public class Calculator {
     private static boolean invalidateInput(String readLine) {
         String[] arr = readLine.split(SEPARTOR);
         for(String item : arr) {
-            if(isNotDigital(item) && OperationEnum.isNotOperator(item) ){
+            if(NumberUtils.isNotDigital(item) && OperationEnum.isNotOperator(item) ){
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean isNotDigital(String item) {
-        if()
-    }
+
+
 
     public String calculator(String str){
         List<String> list = new ArrayList<String>(Arrays.asList(str.split(SEPARTOR)));
