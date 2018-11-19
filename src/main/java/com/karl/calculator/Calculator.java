@@ -1,5 +1,6 @@
 package com.karl.calculator;
 
+import com.karl.calculator.base.OperationEnum;
 import com.karl.calculator.base.OperationFactory;
 import com.karl.calculator.operator.Operation;
 
@@ -13,18 +14,38 @@ import java.util.Scanner;
  * Created by karl on 2018/11/19.
  */
 public class Calculator {
+    private static final String SEPARTOR = " ";
     public static void main(String[] args) {
         Calculator calculator  = new Calculator();
         Scanner sc = new Scanner(System.in);
-        String ret = "";
+        String previousStackLeft = "";
         while(sc.hasNext()) {
-            String n = ret + sc.nextLine();
-            ret = calculator.calculator(n);
+            String readLine = sc.nextLine();
+            if(invalidateInput(readLine)) {
+                System.out.println("invalidate input "+readLine);
+                continue;
+            }
+            String newestStack = previousStackLeft + readLine;
+            previousStackLeft = calculator.calculator(newestStack);
         }
     }
 
+    private static boolean invalidateInput(String readLine) {
+        String[] arr = readLine.split(SEPARTOR);
+        for(String item : arr) {
+            if(isNotDigital(item) && OperationEnum.isNotOperator(item) ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean isNotDigital(String item) {
+        if()
+    }
+
     public String calculator(String str){
-        List<String> list = new ArrayList<String>(Arrays.asList(str.split(" ")));
+        List<String> list = new ArrayList<String>(Arrays.asList(str.split(SEPARTOR)));
         Operation operation = OperationFactory.findFirstOperation(list) ;
         while (operation != null) {
             if (operation.operation()) {
