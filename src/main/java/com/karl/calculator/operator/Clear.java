@@ -21,7 +21,10 @@ public class Clear extends Operation {
 
     @Override
     public void calculate() {
-        this.getExpress().clear();
+        int index = this.getIndexValue().getIndex();
+        for(int i=index;i>=0 ;i--) {
+            this.getExpress().remove(i);
+        }
     }
 
     @Override
